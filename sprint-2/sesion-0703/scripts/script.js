@@ -22,16 +22,32 @@ const printCharacters = (container, charactersList) => {
     container.innerHTML += `
         <article class="cards">
             <figure class="cards__figure">
-                <img src=${character.image} alt=${character.name}>
+                <img class="cards__image" data-card='cards' name=${character.id} src=${character.image} alt=${character.name}>
             </figure>
-            <h3 class="cards__name">${character.name}</h3>
+            <h3 class="cards__name" data-card='cards' name=${character.id}>${character.name}</h3>
         </article>
         `;
   });
 };
 
 //3. Vamos a escuchar al evento DomContentLoad y cuando suceda este evento se deben imprimir los personajes
-document.addEventListener('DOMContentLoaded', () => {
-    printCharacters(containerCards, disneyCharacters);
-})
+document.addEventListener("DOMContentLoaded", () => {
+  printCharacters(containerCards, disneyCharacters);
+});
 
+//4. Vamos a escuchar el evento click sobre las cards
+document.addEventListener("click", (event) => {
+  // if (event.target.classList.contains('cards__image')) {
+  //     console.log("Hice click aquí");
+  //     console.log(event.target);
+  //     const dataCardAttribute = event.target.getAttribute('data-card');
+  //     console.log(dataCardAttribute);
+  // }
+  const dataCardAttribute = event.target.getAttribute("data-card");
+  if (dataCardAttribute === "cards") {
+    // console.log('Quiero ir a la página de detalles de este personaje');
+    const id = event.target.getAttribute("name");
+    sessionStorage.setItem("idCharacter", JSON.stringify(id));
+    window.location.href = "./pages/details.html";
+  }
+});
