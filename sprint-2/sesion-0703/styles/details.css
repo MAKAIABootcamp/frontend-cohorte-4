@@ -21,6 +21,7 @@ body{
 
 .header__figure img{
     width: 150px;
+    cursor: pointer;
 }
 
 .header__list{

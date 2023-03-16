@@ -1,5 +1,15 @@
 import { disneyCharacters } from "../scripts/data.js";
 
+//------Escuchar el click del logo de la página para que redireccione a la página principal-----
+
+const logo = document.querySelector(".header__image");
+
+logo.addEventListener('click', () => {
+  window.location.href = "../index.html";
+})
+
+//-----------------------------------------------------------------
+
 //Le vamos a agregar el contenido deseado: 1. Imagen del personaje
 const showCharacterInfo = (contenedor, character) => {
   //Creamos el elemento figure

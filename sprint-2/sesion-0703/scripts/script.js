@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //4. Vamos a escuchar el evento click sobre las cards
 document.addEventListener("click", (event) => {
+  console.log("Hice click en ", event.target);
   // if (event.target.classList.contains('cards__image')) {
   //     console.log("Hice click aquí");
   //     console.log(event.target);
@@ -51,3 +52,30 @@ document.addEventListener("click", (event) => {
     window.location.href = "./pages/details.html";
   }
 });
+
+//-----------------------Filtrado---------------------
+//1. Creamos un array con las categorías de los personajes
+
+const categories = ["all"];
+
+disneyCharacters.forEach((item) => {
+  if (!categories.includes(item.seenIn.category)) {
+    categories.push(item.seenIn.category);
+  }
+});
+
+categories.forEach((item) => {
+  const botonFiltrado = document.getElementsByName(item)[0];
+
+  botonFiltrado.addEventListener("click", () => {
+    const personajesFiltrados =
+      item === "all"
+        ? disneyCharacters
+        : disneyCharacters.filter(
+            (element) => element.seenIn.category === item
+          );
+    printCharacters(containerCards, personajesFiltrados);
+  });
+});
+
+//-----------------------------------------

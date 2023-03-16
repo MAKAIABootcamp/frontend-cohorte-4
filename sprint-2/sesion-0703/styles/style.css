@@ -21,6 +21,7 @@ body{
 
 .header__figure img{
     width: 150px;
+    cursor: pointer;
 }
 
 .header__list{
@@ -116,6 +117,34 @@ body{
 
 .cardVideo section div span{
     font-weight: 800;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.main__botones{
+    display: flex;
+    gap: 30px;
+}
+
+.main__botones button{
+    padding: 5px 10px;
+    font-family: 'Open Sans';
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.main__botones button:hover{
+    background-color: black;
+    color: #fff;
 }
 
 @media screen and (max-width: 600px) {
