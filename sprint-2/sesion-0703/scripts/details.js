@@ -1,5 +1,9 @@
 import { disneyCharacters } from "../scripts/data.js";
 
+
+const characters =
+  JSON.parse(sessionStorage.getItem("characters")) || disneyCharacters;
+
 //------Escuchar el click del logo de la página para que redireccione a la página principal-----
 
 const logo = document.querySelector(".header__image");
@@ -37,9 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(idCharacter);
 
   //Hacer la búsqueda del personaje al cual le hemos dado click
-  const character = disneyCharacters.find(
-    (person) => person.id === idCharacter
-  );
+  const character = characters.find((person) => person.id === idCharacter);
   console.log(character);
 
   //Actualizar el título con el nombre del personaje
