@@ -27,6 +27,11 @@ const printCharacters = (container, charactersList) => {
                 <img class="cards__image" data-card='cards' name=${character.id} src=${character.image} alt=${character.name}>
             </figure>
             <h3 class="cards__name" data-card='cards' name=${character.id}>${character.name}</h3>
+            <div class="cards__buttons">
+              <button class="cards__button cards__button--delete" data-card='delete' name=${character.id}>
+                <span class="material-symbols-outlined" data-card='delete' name=${character.id}>delete</span>
+              </button>
+            </div>
         </article>
         `;
   });
@@ -47,11 +52,18 @@ document.addEventListener("click", (event) => {
   //     console.log(dataCardAttribute);
   // }
   const dataCardAttribute = event.target.getAttribute("data-card");
+  const id = Number(event.target.getAttribute("name"));
   if (dataCardAttribute === "cards") {
     // console.log('Quiero ir a la página de detalles de este personaje');
-    const id = event.target.getAttribute("name");
     sessionStorage.setItem("idCharacter", JSON.stringify(id));
     window.location.href = "./pages/details.html";
+  }
+
+  if (dataCardAttribute === "delete") {
+    console.log("Quiero eliminar a este personaje");
+    const noEliminados = characters.filter(item => item.id !== id);
+    sessionStorage.setItem("characters", JSON.stringify(noEliminados));
+    printCharacters(containerCards, noEliminados);    
   }
 });
 
@@ -116,7 +128,6 @@ formSearch.addEventListener("submit", (e) => {
   const searchTerm = inputSearch.value;
 
   if (searchTerm) {
-
     const searchResult = filterByName(searchTerm, characters);
 
     console.log(searchResult);
@@ -124,11 +135,9 @@ formSearch.addEventListener("submit", (e) => {
     printCharacters(containerCards, searchResult.resultSearch);
 
     if (searchResult.messageSearch) {
-
       Swal.fire("Oops!", searchResult.messageSearch, "error");
     }
   } else {
-
     Swal.fire("Oops!", "No ingresaste un personaje", "error");
   }
 });
