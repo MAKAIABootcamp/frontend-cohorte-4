@@ -191,7 +191,7 @@ body {
 .cards__buttons {
   position: absolute;
   top: 65%;
-  left: 40%;
+  left: 30%;
   visibility: hidden;
 }
 
@@ -217,6 +217,11 @@ body {
 .cards__button--delete:hover {
   color: red;
   border: 2px solid red;
+}
+
+.cards__button--edit:hover {
+  color: yellow;
+  border: 2px solid yellow;
 }
 
 @media screen and (max-width: 600px) {

@@ -8,7 +8,7 @@ import { disneyCharacters } from "./data.js";
 
 console.log(disneyCharacters);
 
-const characters =
+let characters =
   JSON.parse(sessionStorage.getItem("characters")) || disneyCharacters;
 //Mostrar los personaje enlistados en cards
 //1. Capturamos el contenedor donde vamos a pintar todas las cards
@@ -30,6 +30,9 @@ const printCharacters = (container, charactersList) => {
             <div class="cards__buttons">
               <button class="cards__button cards__button--delete" data-card='delete' name=${character.id}>
                 <span class="material-symbols-outlined" data-card='delete' name=${character.id}>delete</span>
+              </button>
+              <button class="cards__button cards__button--edit" data-card='edit' name=${character.id}>
+                <span class="material-symbols-outlined" data-card='edit' name=${character.id}>edit</span>
               </button>
             </div>
         </article>
@@ -61,9 +64,13 @@ document.addEventListener("click", (event) => {
 
   if (dataCardAttribute === "delete") {
     console.log("Quiero eliminar a este personaje");
-    const noEliminados = characters.filter(item => item.id !== id);
-    sessionStorage.setItem("characters", JSON.stringify(noEliminados));
-    printCharacters(containerCards, noEliminados);    
+    characters = characters.filter((item) => item.id !== id);
+    sessionStorage.setItem("characters", JSON.stringify(characters));
+    printCharacters(containerCards, characters);
+  }
+  if (dataCardAttribute === "edit") {
+    sessionStorage.setItem("idEdit", JSON.stringify(id));
+    window.location.href = "../pages/formCharacters.html";
   }
 });
 
