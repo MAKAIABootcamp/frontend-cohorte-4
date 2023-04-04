@@ -62,7 +62,7 @@
 3. ¿Por qué y para qué se emplea Webpack & Babel?
 4. ¿Cómo configurar Webpack & Babel en una app?
 5. ¿Cómo desplegar una app con Webpack & Babel en GitHub pages?
-6. [Repositorio del ejercicio en clase](https://github.com/hispanos/test-webpack-c3)✨
+6. [Repositorio del ejercicio en clase]()✨
 ### Sesión 9 CRUD con axios, SASS y Webpack & Babel
 
 ### Sesión 10 Continuación CRUD con axios, SASS y Webpack & Babel
