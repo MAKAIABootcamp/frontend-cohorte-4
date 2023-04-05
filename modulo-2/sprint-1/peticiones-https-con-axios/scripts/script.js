@@ -28,16 +28,17 @@ const getAllInfoPokemons = async (url) => {
         name: response.data.name,
         height: response.data.height,
         image: response.data.sprites.front_default,
-        abilities: response.data.abilities.map(item=> item.ability.name)
-      }; 
+        abilities: response.data.abilities.map((item) => item.ability.name),
+        types: response.data.types.map((item) => item.type.name),
+      };
       allInfoPokemons.push(poke);
     }
     return allInfoPokemons;
   } catch (error) {
     console.log(error);
-    return []
+    return [];
   }
-}
+};
 
 //Nos obtiene un pokemon de la API
 const getPokemonFromApi = async (url) => {
