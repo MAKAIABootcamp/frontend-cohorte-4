@@ -1,0 +1,27 @@
+@import 'universals.scss' ;
+@import 'variables.scss';
+
+body{
+    font-family: $font-primary;
+    font-size: $font-size;
+}
+
+.header {
+  &__loginBar {
+    background-color: $color-primary;
+    color: $color-font-secundary;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 18px 18px 65px;
+  }
+  &__info{
+    display: flex;
+    gap:30px;
+  }
+  &__login{
+    a{
+        color: $color-font-secundary;
+        text-decoration: none;
+    }
+  }
+}

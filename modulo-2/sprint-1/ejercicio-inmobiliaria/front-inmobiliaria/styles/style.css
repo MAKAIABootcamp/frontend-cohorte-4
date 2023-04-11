@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik";
+  font-size: 16px;
+}
+
+.header__loginBar {
+  background-color: #2a41e8;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 18px 18px 65px;
+}
+.header__info {
+  display: flex;
+  gap: 30px;
+}
+.header__login a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
