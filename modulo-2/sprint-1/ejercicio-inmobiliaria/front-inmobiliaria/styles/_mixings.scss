@@ -1,0 +1,8 @@
+
+@mixin buttons($sizePadding, $backgroundColor, $fontSize, $colorFont){
+    padding: $sizePadding;
+    background-color: $backgroundColor;
+    font-size: $fontSize;
+    color: $colorFont;
+    border: none;
+}
