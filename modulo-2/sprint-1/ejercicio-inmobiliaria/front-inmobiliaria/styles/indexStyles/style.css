@@ -67,7 +67,7 @@ body {
   border: none;
 }
 .header__banner {
-  background-image: url("../assets/hero-bg-image.png");
+  background-image: url("../../assets/hero-bg-image.png");
   height: 50vh;
   background-size: cover;
   padding: 157px 215px;
@@ -94,6 +94,7 @@ body {
 .header__search input {
   padding: 20px;
   min-width: 400px;
+  border-radius: 4px;
 }
 .header__search input::placeholder {
   font-size: 18px;

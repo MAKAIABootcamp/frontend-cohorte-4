@@ -1,6 +1,6 @@
-@import 'universals.scss' ;
-@import 'variables.scss';
-@import 'mixings.scss';
+@import '../universals' ;
+@import '../variables';
+@import '../mixings';
 
 body{
     font-family: $font-primary;
@@ -65,7 +65,7 @@ body{
      @include buttons(31px, $color-secundary, $font-size, $color-font-secundary);
   }
   &__banner{
-    background-image: url('../assets/hero-bg-image.png');
+    background-image: url('../../assets/hero-bg-image.png');
     height: 50vh;
     background-size: cover;
     padding: 157px 215px;
@@ -91,6 +91,7 @@ body{
     input{
       padding: 20px;
       min-width: 400px;
+      border-radius: 4px;
       &::placeholder{
         font-size: 18px;
       }
